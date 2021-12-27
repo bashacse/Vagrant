@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   
   # Box Settings
   config.vm.box = "centos/7"
-
+  ENV["VAGRANT_DETECTED_OS"] = ENV["VAGRANT_DETECTED_OS"].to_s + " cygwin"
   # Provider Settings
   config.vm.provider "virtualbox" do |vb|
     vb.name = "Vagrant CentOs 7"
@@ -21,7 +21,8 @@ Vagrant.configure("2") do |config|
 
   # Folder Settings(here "." meants current directory of host machine)
   #config.vm.synced_folder ".", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"] 
+  config.vm.synced_folder ".", "/vagrant", disabled: 'true'
   
   # Provision Settings
-  #config.vm.provision "shell", path: "bootstrap.sh"
+  config.vm.provision "shell", path: "provision_script.sh"
 end
