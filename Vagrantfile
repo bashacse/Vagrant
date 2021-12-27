@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "192.168.1.110"
 
   # Folder Settings(here "." meants current directory of host machine)
-  config.vm.synced_folder ".", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"] 
+  #config.vm.synced_folder ".", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"] 
   
   # Provision Settings
   #config.vm.provision "shell", path: "bootstrap.sh"
